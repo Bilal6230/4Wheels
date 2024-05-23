@@ -87,19 +87,19 @@
                     <div class="col-md-3 border">
                         <div class="text-center mt-3">
                             <i class="fa-solid fa-calendar-days fa-3x"></i>
-                            <h5>2020</h5>
+                            <h5>{{$data->years}}</h5>
                         </div>
                     </div>
                     <div class="col-md-3 border">
                         <div class="text-center mt-3">
                             <i class="fa-solid fa-gauge fa-3x"></i>
-                            <h5>60,000 KM</h5>
+                            <h5>{{$data->CarMilage}} KM</h5>
                         </div>
                     </div>
                     <div class="col-md-3 border">
                         <div class="text-center mt-3">
                             <i class="fa-solid fa-gas-pump fa-3x"></i>
-                            <h5>Petrol</h5>
+                            <h5>{{$data->EnginType}}</h5>
                         </div>
                     </div>
                     <div class="col-md-3 border">
@@ -113,15 +113,15 @@
                 <div class="auction-list fs16">
                   <ul class="list-unstyled clearfix nomargin">
                     <li>
-                      <strong class="pull-right">25</strong>
+                      <strong class="pull-right">{{$data->CarMilage}}</strong>
                       Mileage
                     </li>
                     <li>
-                      <strong class="pull-right ">2023-03-09</strong>
+                      <strong class="pull-right ">{{$data->created_at}}</strong>
                       Auction Date
                     </li>
                     <li>
-                      <strong class="pull-right ">KSP130-4031537</strong>
+                      <strong class="pull-right ">{{$data->RegistrrationNumber}}</strong>
                       Chassis number
                     </li>
                   </ul>
@@ -130,20 +130,20 @@
                 <br>
                 <h2> Car Feature </h2>
                 <div class="row ">
-                  <div class="col-md-4">ABS</div>
-                  <div class="col-md-4">AM/FM Radio
+                  <div class="col-md-4">Gear_Box: {{$data->GearBox}}</div>
+                  <div class="col-md-4">EnginType: {{$data->EnginType}}
                   </div>
                   
-                  <div class="col-md-4">Air Bags</div>
-                  <div class="col-md-4 mt-2">Air Conditioning</div>
-                  <div class="col-md-4 mt-2">CD Player</div>
-                  <div class="col-md-4 mt-2">Front Speaker</div>
-                  <div class="col-md-4 mt-2">Immobilzer Keys</div>
-                  <div class="col-md-4 mt-2">Keyless Entry</div>
-                  <div class="col-md-4 mt-2">Power Locks</div>
-                  <div class="col-md-4 mt-2">Power Mirror</div>
-                  <div class="col-md-4 mt-2">Power steering</div>
-                  <div class="col-md-4 mt-2">Power Window</div>
+                  <div class="col-md-4">Car Color:{{$data->CarColor}}</div>
+                  <div class="col-md-4 mt-2">Engin Position:{{$data->EngiPosition}}</div>
+                  <div class="col-md-4 mt-2">Aspiration: {{$data->Aspiration}}</div>
+                  <div class="col-md-4 mt-2">Engine Size: {{$data->EngineSize}}</div>
+                  <div class="col-md-4 mt-2">Cylinder Layout:{{$data->CylinderLayout}}</div>
+                  <div class="col-md-4 mt-2">Fuel Consumption:{{$data->FuelConsumption}}</div>
+                  <div class="col-md-4 mt-2">Health: {{$data->Health}}</div>
+                  <div class="col-md-4 mt-2">Top Speed: {{$data->TopSpeed}}</div>
+                  <div class="col-md-4 mt-2">DrivenWheels: {{$data->DrivenWheels}}</div>
+                  <div class="col-md-4 mt-2">DrivenWheels: {{$data->Cylinder}}</div>
                 </div>
                 <br>
                 <br><br> 
@@ -151,8 +151,8 @@
 
             <div class="col-md-3  mt-5  ms-3 text-center">
                 <div class="bg-light">
-                    <strong class="generic-green  mt-5">PKR 48
-                        <span>lacs</span>
+                    <strong class="generic-green  mt-5">{{$data->CarPrice}}
+                        <span>RS</span>
                     </strong>
                     <div>
                         <span class="sold-by-pw" style="font-size: 13px;">Managed by 4Wheels</span>
@@ -164,7 +164,7 @@
                     <button class="btn btn-large mt-3 w-75 btn-block btn-success h-25  phone_number_btn border">
                         <i class="fa fa-phone"></i>
                         <span class="fs22">
-                            0480227661...
+                            {{$data->TelephoneNumber}}
                             <br><small>Show Phone Number</small>
                         </span>
                     </button>
@@ -182,12 +182,12 @@
                         <span class="fs-4">Seller Information</span>
                         <hr class="underline">
 
-                        <h5 class="text-center  " style="color: rgb(136, 136, 247); font-weight:bold">Ali hamza Gill</h5>
+                        <h5 class="text-center  " style="color: rgb(136, 136, 247); font-weight:bold">{{$data->Fname .' '.$data->Lname}}</h5>
                         <small class="text-start pt-1" style="font-weight: bold ; font-size:15px">Dealer:</small>
                         <a href="" style="font-size:18px ;font-weight: bold"> 4Wheels Pakistan </a><br>
                         <br>
                         <small class="text-start pt-2 ms-4" style="font-weight: bold ; font-size:15px">ADDress:</small>
-                        <small>Narang Mandi ,Dera Ashraf district Sheikhpura Muridaka Road </small>
+                        <small>{{$data->County.' ,'.$data->City.' ,'.$data->Address1}}</small>
                         <br>
                         <br>
                         <div class="d-flex align-items-center">
@@ -195,7 +195,7 @@
                                 style="font-weight: bold; font-size: 15px">Post_Code:</small>
                             <table class="table mb-0 ms-2  mt-2" style="border-width:1px; background-color:rgb(253, 253, 229)">
                                 <tr>
-                                    <td class="border ">56789</td>
+                                    <td class="border ">{{$data->Postcode}}</td>
                                 </tr>
                             </table>
                         </div>
@@ -205,7 +205,7 @@
                         <br>
                         <br>
                         <small class="text-start mt-3 " style="font-weight: bold ; font-size:15px">State/Country :</small>
-                        <span class="me-3"> Pakistan</span>
+                        <span class="me-3">{{$data->County}}</span>
                         <br>
                         <br>
                         <div class="row">
