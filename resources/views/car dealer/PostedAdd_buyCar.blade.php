@@ -11,7 +11,7 @@
             <div class="col-1 text-end  mt-5">    </div>
             <div class="col-md-7 bg-light  mt-5">
                 <h1 class="h1text text-center mt-5 pt-2" style="background-color: rgb(243, 243, 243)">
-                    Toyota Corolla Altis Automatic 1.6 2020
+                   {{ $data->CarName .' '. $data->EnginType .' '. $data->CarMilage .' '. $data->years}}
                 </h1>
                 <p class="border-right mt-2">
                     <a href="">
