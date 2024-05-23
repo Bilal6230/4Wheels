@@ -270,75 +270,34 @@
         <div class="border-left-right mb-4">
             <h1>Find the Perfect Protection for Your Vehicle</h1>
         </div>
-        <div class="row ms-4" style="width: 95%">
+        <div class="row ms-4" >
+            @foreach ($Insurance_Company as $insurance)      
             <div class="col-3">
                 <div class="card text-start">
-                    <img class="card-img-top" src="./car.png" alt="Car Image">
+                    @php
+                    if (!empty($insurance->UploadLogo)) {
+                        $image =$insurance->UploadLogo;
+                    } else {
+                        $image = asset('car.png'); // Ensure the correct path to the default image
+                    }
+                @endphp
+                <img class="card-img-top" src="{{ $image }}" style="width: 150px; height: auto;" alt="Car Image">
                     <div class="card-body">
-                        <h4 class="card-title">Comprehensive Car Insurance</h4>
-                        <p class="card-text">Coverage Type: Full Protection</p>
-                        <p class="card-text">Price: $500 per year</p>
-                        <p class="card-text">Policy Features: Accident Coverage, Theft Protection, Roadside Assistance
+                        <h4 class="card-title">{{ $insurance->CompanyName ?? 'UnKnown Company Name' }}</h4>
+                        <p class="card-text">{{$insurance->CompanyObjective ?? 'No Objective'}}</p>
+                        <p class="card-text">Price: {{$insurance->$insurance ?? '0'}}RS</p>
+                        <p class="card-text">{{$insurance->CompanyTagLine ?? "No Objective line"}}
                         </p>
                         <div class="text-center">
-                            <a href="#" class="btn btn-danger">Get a Quote</a>
+                            <a href="{{ url('/insurance_form', $insurance->id) }}" class="btn btn-danger">Contact us</a>
                         </div>
                     </div>
 
 
                 </div>
             </div>
-            <div class="col-3">
-                <div class="card text-start">
-                    <img class="card-img-top" src="./car.png" alt="Car Image">
-                    <div class="card-body">
-                        <h4 class="card-title">Comprehensive Car Insurance</h4>
-                        <p class="card-text">Coverage Type: Full Protection</p>
-                        <p class="card-text">Price: $500 per year</p>
-                        <p class="card-text">Policy Features: Accident Coverage, Theft Protection, Roadside Assistance
-                        </p>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-danger">Get a Quote</a>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card text-start">
-                    <img class="card-img-top" src="./car.png" alt="Car Image">
-                    <div class="card-body">
-                        <h4 class="card-title">Comprehensive Car Insurance</h4>
-                        <p class="card-text">Coverage Type: Full Protection</p>
-                        <p class="card-text">Price: $500 per year</p>
-                        <p class="card-text">Policy Features: Accident Coverage, Theft Protection, Roadside Assistance
-                        </p>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-danger">Get a Quote</a>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card text-start">
-                    <img class="card-img-top" src="./car.png" alt="Car Image">
-                    <div class="card-body">
-                        <h4 class="card-title">Comprehensive Car Insurance</h4>
-                        <p class="card-text">Coverage Type: Full Protection</p>
-                        <p class="card-text">Price: $500 per year</p>
-                        <p class="card-text">Policy Features: Accident Coverage, Theft Protection, Roadside Assistance
-                        </p>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-danger">Get a Quote</a>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
+            @endforeach
+            
         </div>
     </div>
     <script>

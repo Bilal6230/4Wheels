@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InsuranceCompany;
 use App\Models\profileModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -274,7 +275,8 @@ class CarRegistration extends Controller
     public function cardata()
     {
         $data = ModelCarRegistration::all();
-        return view('WebsiteLandingPage', compact('data'));
+        $Insurance_Company = InsuranceCompany::all();
+        return view('WebsiteLandingPage', compact('data','Insurance_Company'));
     }
     public function postadd($id)
     {
