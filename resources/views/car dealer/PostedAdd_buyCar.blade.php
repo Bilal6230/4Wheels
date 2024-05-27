@@ -2,7 +2,6 @@
 @section('content')
     <div class="container bgcolor mt-3 ">
             
-        
         <div class="text-center BodyTexAdjust">
             <code>HomeUsed /CarsCars /KarachiToyota /KarachiVitz /KarachiVitz /2020 /KarachiVitz /2020</code>
         </div>
@@ -238,7 +237,7 @@
                 </div>
             </div>
 
-<input type="text"  disabled st>
+<input type="text"  disabled style="display: none" >
 
         </div>
         
